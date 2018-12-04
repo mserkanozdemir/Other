@@ -14,7 +14,8 @@ class OtherViewController: UIViewController {
     
     private lazy var tableview: UITableView = {
         let tableview = UITableView.init(frame: .zero, style: .plain)
-        tableview.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
+        tableview.register(LogOutTableViewCell.self, forCellReuseIdentifier: "logOutCell")
         tableview.delegate = self
         tableview.dataSource = self
         tableview.translatesAutoresizingMaskIntoConstraints = false
@@ -51,6 +52,10 @@ extension OtherViewController: UITableViewDelegate {
         return sectionHeaderView
     }
     
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return viewModel.sections[section].sectionHeaderHeight
+    }
+    
 }
 
 extension OtherViewController: UITableViewDataSource {
@@ -64,8 +69,22 @@ extension OtherViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        cell.textLabel?.text = viewModel.sections[indexPath.section].rows[indexPath.row].rowName
-        return cell
+        guard let rowType = viewModel.getRowType(indexPath: indexPath) else  {
+           return UITableViewCell()
+        }
+        
+        switch rowType {
+        case .logout :
+            let cell = tableView.dequeueReusableCell(withIdentifier: "logOutCell", for: indexPath) as! LogOutTableViewCell
+            return cell
+        default:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OtherCell
+            cell.populateUI(with: rowType)
+            return cell
+        }
+        
+        
+
+        
     }
 }

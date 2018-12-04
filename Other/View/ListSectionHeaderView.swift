@@ -15,14 +15,19 @@ class ListSectionHeaderView: UIView {
     private(set) lazy var titleLabel: UILabel = {
         let font: UIFont = .boldSystemFont(ofSize: 14.0)
         let label = UILabel.init()
+        label.translatesAutoresizingMaskIntoConstraints = false
     
         return label
     }()
     
     init() {
         super.init(frame: .zero)
+        self.addSubview(titleLabel)
         
-        
+        titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
+        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
+        titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
+        titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
     }
     
     required init?(coder aDecoder: NSCoder) {
