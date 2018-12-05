@@ -13,11 +13,11 @@ enum SectionType {
     var rows: [RowType] {
         switch self {
         case .infoSection:
-            return [.myProfile, .myInfo, .previousOrders, .myFavorites, .myAdresses, .myCreditCards, .Wallet, .myCoupons, .aboutGame, .promotions, .campus]
+            return [.GameProfile, .Profile, .Orders, .Favourites, .Adresses, .CreditCards, .Wallet, .Coupons, .Wiki, .Deals, .Campus]
         case .settingsSection:
-            return [.changeLanguage, .changeCity, .rateApp, .aboutApp]
+            return [.Language, .ChangeCity, .RateApp, .AboutApp]
         case .logoutSection:
-            return [.logout]
+            return [.Logout]
             }
         }
 
@@ -35,78 +35,78 @@ enum SectionType {
     var sectionHeaderHeight: CGFloat {
         switch self {
         case .infoSection:
-            return 50.0
+            return 30.0
         case .settingsSection:
-            return 80.0
+            return 40.0
         case .logoutSection:
-            return 50.0
+            return 30.0
         }
     }
 }
 
     enum RowType {
         case
-        myProfile, myInfo, previousOrders, myFavorites, myAdresses, myCreditCards, Wallet, myCoupons, aboutGame, promotions, campus, changeLanguage, changeCity, rateApp, aboutApp, logout
+        GameProfile, Profile, Orders, Favourites, Adresses, CreditCards, Wallet, Coupons, Wiki, Deals, Campus, Language, ChangeCity, RateApp, AboutApp, Logout
         var rowName: String {
             switch self {
-            case .myProfile:
+            case .GameProfile:
                 return "Profilim"
-            case .myInfo:
+            case .Profile:
                 return "Bilgilerim"
-            case .previousOrders:
+            case .Orders:
                 return "Önceki Siparişlerim"
-            case .myFavorites:
+            case .Favourites:
                 return "Favorilerim"
-            case .myAdresses:
+            case .Adresses:
                 return "Adreslerim"
-            case .myCreditCards:
+            case .CreditCards:
                 return "Kredi Kartlarım"
             case .Wallet:
-                return "Cüzdan"
-            case .myCoupons:
+                return "Cüzdanım"
+            case .Coupons:
                 return "Kuponlarım"
-            case .aboutGame:
-                return "Oyunla İlgili Bilgiler vsdvfgdsfdsfdsafsadfsadfs"
-            case .promotions:
+            case .Wiki:
+                return "Oyunla İlgili Bilgiler"
+            case .Deals:
                 return "Fırsatlar"
-            case .campus:
+            case .Campus:
                 return "Kampüs"
-            case .changeLanguage:
+            case .Language:
                 return "Change Language"
-            case .changeCity:
+            case .ChangeCity:
                 return "Şehir Değiştir"
-            case .rateApp:
+            case .RateApp:
                 return "Uygulamayı Değerlendirin"
-            case .aboutApp:
+            case .AboutApp:
                 return "Uygulama Hakkında"
-            case .logout:
+            case .Logout:
                 return "Güvenli Çıkış"
             }
         }
 
             var icon: UIImage? {
                 switch self {
-                case .myProfile:
+                case .GameProfile:
                     return #imageLiteral(resourceName: "myProfile")
-                case .myInfo:
+                case .Profile:
                     return #imageLiteral(resourceName: "myProfile")
-                case .previousOrders:
+                case .Orders:
                     return #imageLiteral(resourceName: "myOrders")
-                case .myFavorites:
+                case .Favourites:
                     return #imageLiteral(resourceName: "myFavourites")
-                case .myAdresses:
+                case .Adresses:
                     return #imageLiteral(resourceName: "myAddresses")
-                case .myCreditCards:
+                case .CreditCards:
                     return #imageLiteral(resourceName: "myCreditCards")
                 case .Wallet:
                     return #imageLiteral(resourceName: "myWallet")
-                case .myCoupons:
+                case .Coupons:
                     return #imageLiteral(resourceName: "myCoupons")
-                case .aboutGame:
+                case .Wiki:
                     return #imageLiteral(resourceName: "myProfile")
-                case .promotions:
+                case .Deals:
                     return #imageLiteral(resourceName: "deals")
-                case .campus:
+                case .Campus:
                     return #imageLiteral(resourceName: "other_campus")
                 default:
                     return nil

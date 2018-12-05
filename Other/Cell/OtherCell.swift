@@ -22,6 +22,7 @@ class OtherCell: UITableViewCell {
     private lazy var titleLabel: UILabel = {
         let cellTitle = UILabel.init()
         cellTitle.translatesAutoresizingMaskIntoConstraints = false
+        cellTitle.font = UIFont(name: "Helvetica", size: 14)
         return cellTitle
     }()
     
@@ -39,7 +40,7 @@ class OtherCell: UITableViewCell {
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.translatesAutoresizingMaskIntoConstraints = false
-        stackView.spacing = 8
+        stackView.spacing = 16
         return stackView
     }()
     

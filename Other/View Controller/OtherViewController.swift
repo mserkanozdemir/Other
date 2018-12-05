@@ -19,6 +19,7 @@ class OtherViewController: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         tableview.translatesAutoresizingMaskIntoConstraints = false
+        tableview.tableFooterView = UIView.init()
         return tableview
     }()
     
@@ -35,6 +36,7 @@ class OtherViewController: UIViewController {
         view.addSubview(tableview)
         populateUI()
     }
+    
     
     func populateUI() {
         tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
@@ -56,6 +58,10 @@ extension OtherViewController: UITableViewDelegate {
         return viewModel.sections[section].sectionHeaderHeight
     }
     
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return .leastNormalMagnitude
+    }
+    
 }
 
 extension OtherViewController: UITableViewDataSource {
@@ -74,7 +80,7 @@ extension OtherViewController: UITableViewDataSource {
         }
         
         switch rowType {
-        case .logout :
+        case .Logout :
             let cell = tableView.dequeueReusableCell(withIdentifier: "logOutCell", for: indexPath) as! LogOutTableViewCell
             return cell
         default:

@@ -13,8 +13,8 @@ class ListSectionHeaderView: UIView {
     
     // MARK: - Properties
     private(set) lazy var titleLabel: UILabel = {
-        let font: UIFont = .boldSystemFont(ofSize: 14.0)
         let label = UILabel.init()
+        label.font = UIFont(name: "Helvetica", size: 12)
         label.translatesAutoresizingMaskIntoConstraints = false
     
         return label
@@ -37,6 +37,8 @@ class ListSectionHeaderView: UIView {
 extension ListSectionHeaderView {
     func populate(with datasource: String) {
         titleLabel.text = datasource
-        titleLabel.backgroundColor = .gray
+        titleLabel.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
+        titleLabel.textColor = #colorLiteral(red: 0.588, green: 0.588, blue: 0.588, alpha: 1.00)
 }
 }
+

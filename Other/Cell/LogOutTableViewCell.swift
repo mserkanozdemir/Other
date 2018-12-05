@@ -16,7 +16,7 @@ class LogOutTableViewCell: UITableViewCell {
         cellTitle.text = "Çıkış Yap"
         cellTitle.textAlignment = .center
         cellTitle.textColor = .red
-        cellTitle.translatesAutoresizingMaskIntoConstraints = false
+        cellTitle.font = UIFont(name: "Helvetica", size: 14)
         return cellTitle
     }()
     
