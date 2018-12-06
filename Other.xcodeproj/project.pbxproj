@@ -16,6 +16,7 @@
 		B373775F21B5A94F003F7C2E /* OtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373775E21B5A94F003F7C2E /* OtherTableViewCell.swift */; };
 		B373776121B5B4D6003F7C2E /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776021B5B4D6003F7C2E /* OtherCell.swift */; };
 		B373776321B5B96B003F7C2E /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776221B5B96B003F7C2E /* LogOutTableViewCell.swift */; };
+		B373776C21B8101C003F7C2E /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776B21B8101C003F7C2E /* UIScreenExtension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		B373775E21B5A94F003F7C2E /* OtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableViewCell.swift; sourceTree = "<group>"; };
 		B373776021B5B4D6003F7C2E /* OtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		B373776221B5B96B003F7C2E /* LogOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTableViewCell.swift; sourceTree = "<group>"; };
+		B373776B21B8101C003F7C2E /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 				B30F6E4A219C13F20056A3C2 /* Assets.xcassets */,
 				B30F6E4C219C13F20056A3C2 /* LaunchScreen.storyboard */,
 				B30F6E4F219C13F20056A3C2 /* Info.plist */,
+				B373776B21B8101C003F7C2E /* UIScreenExtension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -191,6 +194,7 @@
 				B30F6E43219C13F10056A3C2 /* OtherViewController.swift in Sources */,
 				B30F6E58219C730D0056A3C2 /* ListSectionHeaderView.swift in Sources */,
 				B373775F21B5A94F003F7C2E /* OtherTableViewCell.swift in Sources */,
+				B373776C21B8101C003F7C2E /* UIScreenExtension.swift in Sources */,
 				B30F6E56219C61900056A3C2 /* OtherViewModel.swift in Sources */,
 				B30F6E41219C13F10056A3C2 /* AppDelegate.swift in Sources */,
 			);
@@ -333,6 +337,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X7D49H4356;
 				INFOPLIST_FILE = "$(SRCROOT)/Other/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -351,6 +356,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X7D49H4356;
 				INFOPLIST_FILE = "$(SRCROOT)/Other/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

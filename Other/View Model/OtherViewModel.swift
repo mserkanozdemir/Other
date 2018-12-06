@@ -26,7 +26,7 @@ enum SectionType {
         case .infoSection:
             return " "
         case .settingsSection:
-            return "Ayarlar"
+            return "   Ayarlar"
         case .logoutSection:
             return " "
         }
@@ -39,7 +39,7 @@ enum SectionType {
         case .settingsSection:
             return 40.0
         case .logoutSection:
-            return 30.0
+            return 20.0
         }
     }
 }
@@ -87,7 +87,7 @@ enum SectionType {
             var icon: UIImage? {
                 switch self {
                 case .GameProfile:
-                    return #imageLiteral(resourceName: "myProfile")
+                    return #imageLiteral(resourceName: "profile_icon")
                 case .Profile:
                     return #imageLiteral(resourceName: "myProfile")
                 case .Orders:
@@ -103,11 +103,22 @@ enum SectionType {
                 case .Coupons:
                     return #imageLiteral(resourceName: "myCoupons")
                 case .Wiki:
-                    return #imageLiteral(resourceName: "myProfile")
+                    return #imageLiteral(resourceName: "gameinfo_icon")
                 case .Deals:
                     return #imageLiteral(resourceName: "deals")
                 case .Campus:
                     return #imageLiteral(resourceName: "other_campus")
+                default:
+                    return nil
+                }
+        }
+        
+            var badge: String? {
+                switch self {
+                case .Orders:
+                    return "1"
+                case .Coupons:
+                    return "2"
                 default:
                     return nil
                 }

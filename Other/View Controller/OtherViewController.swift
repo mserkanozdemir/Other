@@ -13,13 +13,16 @@ class OtherViewController: UIViewController {
     var viewModel = OtherViewModel()
     
     private lazy var tableview: UITableView = {
-        let tableview = UITableView.init(frame: .zero, style: .plain)
+        let tableview = UITableView.init(frame: .zero, style: .grouped)
         tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
         tableview.register(LogOutTableViewCell.self, forCellReuseIdentifier: "logOutCell")
         tableview.delegate = self
         tableview.dataSource = self
         tableview.translatesAutoresizingMaskIntoConstraints = false
-        tableview.tableFooterView = UIView.init()
+        tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30.0))
+        tableview.tableFooterView?.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
+        tableview.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
+        tableview.separatorColor = tableview.backgroundColor
         return tableview
     }()
     
@@ -58,10 +61,6 @@ extension OtherViewController: UITableViewDelegate {
         return viewModel.sections[section].sectionHeaderHeight
     }
     
-    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return .leastNormalMagnitude
-    }
-    
 }
 
 extension OtherViewController: UITableViewDataSource {
@@ -86,6 +85,7 @@ extension OtherViewController: UITableViewDataSource {
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OtherCell
             cell.populateUI(with: rowType)
+            
             return cell
         }
         
