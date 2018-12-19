@@ -12,6 +12,7 @@ class OtherViewController: UIViewController {
     
     var viewModel = OtherViewModel()
     
+    
     private lazy var tableview: UITableView = {
         let tableview = UITableView.init(frame: .zero, style: .grouped)
         tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
@@ -41,6 +42,7 @@ class OtherViewController: UIViewController {
     }
     
     
+
     func populateUI() {
         tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
         tableview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
