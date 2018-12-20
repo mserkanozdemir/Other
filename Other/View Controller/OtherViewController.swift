@@ -7,20 +7,19 @@
 //
 
 import UIKit
+import Cartography
 
 class OtherViewController: UIViewController {
     
     var viewModel = OtherViewModel()
     
-    
     private lazy var tableview: UITableView = {
-        let tableview = UITableView.init(frame: .zero, style: .grouped)
+        let tableview = UITableView.init(frame: .zero, style: .plain)
         tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
         tableview.register(LogOutTableViewCell.self, forCellReuseIdentifier: "logOutCell")
         tableview.delegate = self
         tableview.dataSource = self
-        tableview.translatesAutoresizingMaskIntoConstraints = false
-        tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 30.0))
+        tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 30.0))
         tableview.tableFooterView?.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
         tableview.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
         tableview.separatorColor = tableview.backgroundColor
@@ -38,31 +37,21 @@ class OtherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addSubview(tableview)
-        populateUI()
-    }
-    
-    
-
-    func populateUI() {
-        tableview.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
-        tableview.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
-        tableview.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
-        tableview.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
+        constrain(tableview) { $0.edges == $0.superview!.edges }
     }
 }
 
 extension OtherViewController: UITableViewDelegate {
     public func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let sectionTitle = viewModel.sections[section].sectionTitle
+        let section = viewModel.sections[section]
         let sectionHeaderView = ListSectionHeaderView()
-        sectionHeaderView.populate(with: sectionTitle)
+        sectionHeaderView.populate(with: section.sectionTitle, showTopLine: section.shouldShowTopLine )
         return sectionHeaderView
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return viewModel.sections[section].sectionHeaderHeight
     }
-    
 }
 
 extension OtherViewController: UITableViewDataSource {
@@ -90,9 +79,5 @@ extension OtherViewController: UITableViewDataSource {
             
             return cell
         }
-        
-        
-
-        
     }
 }

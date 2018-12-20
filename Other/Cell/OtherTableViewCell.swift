@@ -13,23 +13,15 @@ class OtherTableViewCell: UITableViewCell {
     
     private lazy var icon: UIImageView = {
         let iconImage = UIImageView.init()
-        iconImage.translatesAutoresizingMaskIntoConstraints = false
-        iconImage.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        iconImage.widthAnchor.constraint(equalToConstant: 20).isActive = true
         iconImage.contentMode = .scaleAspectFit
         return iconImage
     }()
     
-    private lazy var titleLabel: UILabel = {
-        let cellTitle = UILabel.init()
-        cellTitle.translatesAutoresizingMaskIntoConstraints = false
-        return cellTitle
-    }()
+    private lazy var titleLabel = UILabel()
     
     private lazy var disclosureIndicator: UIImageView = {
         let rightImage = UIImageView.init()
         rightImage.image = #imageLiteral(resourceName: "right_arrow")
-        rightImage.translatesAutoresizingMaskIntoConstraints = false
         return rightImage
     }()
 
@@ -40,19 +32,18 @@ class OtherTableViewCell: UITableViewCell {
         self.addSubview(titleLabel)
         self.addSubview(disclosureIndicator)
         
-        icon.trailingAnchor.constraint(equalTo: titleLabel.leadingAnchor, constant: -16).isActive = true
-        icon.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        icon.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
-        icon.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        
-        
-        
-        titleLabel.trailingAnchor.constraint(equalTo: disclosureIndicator.leadingAnchor, constant: -4).isActive = true
-        titleLabel.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        
-        disclosureIndicator.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        disclosureIndicator.centerYAnchor.constraint(equalTo: self.centerYAnchor).isActive = true
-        
+        constrain(icon, titleLabel, disclosureIndicator) { image, label, indicator in
+            image.trailing == label.leading - 16
+            image.top == image.superview!.top + 8
+            image.bottom == image.superview!.bottom - 8
+            image.leading == image.superview!.leading + 16
+            image.height == 20
+            image.width == 20
+            label.trailing == indicator.leading - 4
+            label.centerY == label.superview!.centerY
+            indicator.trailing == indicator.superview!.trailing - 16
+            indicator.centerY == indicator.superview!.centerY
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -62,7 +53,6 @@ class OtherTableViewCell: UITableViewCell {
     func populateUI(with type: RowType) {
         icon.image = type.icon
         titleLabel.text = type.rowName
-        
     }
     
 }

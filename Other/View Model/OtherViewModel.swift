@@ -32,6 +32,15 @@ enum SectionType {
         }
     }
 
+    var shouldShowTopLine: Bool {
+        switch self {
+        case .settingsSection:
+            return false
+        default:
+            return true
+        }
+    }
+    
     var sectionHeaderHeight: CGFloat {
         switch self {
         case .infoSection:
@@ -125,7 +134,7 @@ enum SectionType {
         }
 }
 
-class OtherViewModel: NSObject {
+class OtherViewModel {
     var sections: [SectionType] {
         return [.infoSection, .settingsSection, .logoutSection]
     }

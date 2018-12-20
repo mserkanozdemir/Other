@@ -7,12 +7,12 @@
 //
 
 import UIKit
+import Cartography
 
 class LogOutTableViewCell: UITableViewCell {
 
     private lazy var titleLabel: UILabel = {
         let cellTitle = UILabel.init()
-        cellTitle.translatesAutoresizingMaskIntoConstraints = false
         cellTitle.text = "Güvenli Çıkış"
         cellTitle.textAlignment = .center
         cellTitle.textColor = .red
@@ -21,9 +21,8 @@ class LogOutTableViewCell: UITableViewCell {
     }()
     
     private(set) lazy var bottomLine: UIView = {
-        let bottomSeparator = UIView.init(frame: CGRect.init(x: 0, y: UIScreen.main.bounds.height - 0.5, width: UIScreen.screenWidth, height: 0.5))
+        let bottomSeparator = UIView.init()
         bottomSeparator.backgroundColor = #colorLiteral(red: 0.784, green: 0.780, blue: 0.800, alpha: 1.00)
-        bottomSeparator.translatesAutoresizingMaskIntoConstraints = false
         bottomSeparator.heightAnchor.constraint(equalToConstant: 1).isActive = true
         return bottomSeparator
     }()
@@ -33,13 +32,16 @@ class LogOutTableViewCell: UITableViewCell {
         
         self.addSubview(titleLabel)
         self.addSubview(bottomLine)
-        titleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -16).isActive = true
-        titleLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 8).isActive = true
-        titleLabel.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -8).isActive = true
-        titleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 16).isActive = true
-        bottomLine.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0).isActive = true
-        bottomLine.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 7).isActive = true
-        bottomLine.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0).isActive = true
+        
+        constrain(titleLabel, bottomLine) { label, line in
+            label.trailing == label.superview!.trailing - 16
+            label.top == label.superview!.top + 8
+            label.bottom == label.superview!.bottom - 8
+            label.leading == label.superview!.leading + 16
+            line.trailing == line.superview!.trailing
+            line.top == label.bottom + 8
+            line.leading == line.superview!.leading
+        }
 
 }
     

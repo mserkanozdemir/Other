@@ -16,7 +16,6 @@
 		B373775F21B5A94F003F7C2E /* OtherTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373775E21B5A94F003F7C2E /* OtherTableViewCell.swift */; };
 		B373776121B5B4D6003F7C2E /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776021B5B4D6003F7C2E /* OtherCell.swift */; };
 		B373776321B5B96B003F7C2E /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776221B5B96B003F7C2E /* LogOutTableViewCell.swift */; };
-		B373776C21B8101C003F7C2E /* UIScreenExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776B21B8101C003F7C2E /* UIScreenExtension.swift */; };
 		B3D33A8521C7A26F00093873 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3D33A8421C7A26F00093873 /* GoogleService-Info.plist */; };
 		CF1100DE246271BF8AAB4032 /* Pods_Other.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4604114F7C5DCB5C11ADB /* Pods_Other.framework */; };
 /* End PBXBuildFile section */
@@ -35,7 +34,6 @@
 		B373775E21B5A94F003F7C2E /* OtherTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherTableViewCell.swift; sourceTree = "<group>"; };
 		B373776021B5B4D6003F7C2E /* OtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		B373776221B5B96B003F7C2E /* LogOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTableViewCell.swift; sourceTree = "<group>"; };
-		B373776B21B8101C003F7C2E /* UIScreenExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIScreenExtension.swift; sourceTree = "<group>"; };
 		B3D33A8421C7A26F00093873 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B871950F0DBF8BBA30CDAE22 /* Pods-Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Other/Pods-Other.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -123,7 +121,6 @@
 				B30F6E4C219C13F20056A3C2 /* LaunchScreen.storyboard */,
 				B30F6E4F219C13F20056A3C2 /* Info.plist */,
 				B3D33A8421C7A26F00093873 /* GoogleService-Info.plist */,
-				B373776B21B8101C003F7C2E /* UIScreenExtension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -254,7 +251,8 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n";
+			shellScript = "
+";
 			showEnvVarsInLog = 0;
 		};
 		CB0890C54EF3585DF9CFA0F0 /* [CP] Embed Pods Frameworks */ = {
@@ -295,7 +293,6 @@
 				B30F6E43219C13F10056A3C2 /* OtherViewController.swift in Sources */,
 				B30F6E58219C730D0056A3C2 /* ListSectionHeaderView.swift in Sources */,
 				B373775F21B5A94F003F7C2E /* OtherTableViewCell.swift in Sources */,
-				B373776C21B8101C003F7C2E /* UIScreenExtension.swift in Sources */,
 				B30F6E56219C61900056A3C2 /* OtherViewModel.swift in Sources */,
 				B30F6E41219C13F10056A3C2 /* AppDelegate.swift in Sources */,
 			);
