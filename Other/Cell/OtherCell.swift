@@ -15,8 +15,8 @@ class OtherCell: UITableViewCell {
         let iconImage = UIImageView.init()
         iconImage.contentMode = .scaleAspectFit
         constrain(iconImage) {
-            $0.width == 20
-            $0.height == 20
+            $0.width == 23
+            $0.height == 23
         }
         return iconImage
     }()
@@ -31,11 +31,11 @@ class OtherCell: UITableViewCell {
         let badgeLabel = UILabel.init()
         badgeLabel.textColor = .white
         badgeLabel.backgroundColor = .red
-        badgeLabel.font = UIFont.systemFont(ofSize: 14, weight: .medium)
+        badgeLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
         badgeLabel.textAlignment = .center
         constrain(badgeLabel) {
-            $0.width == 20
-            $0.height == 20
+            $0.width == 23
+            $0.height == 23
         }
         return badgeLabel
     }()
@@ -43,11 +43,8 @@ class OtherCell: UITableViewCell {
     private(set) lazy var space = UIView()
     
     private lazy var disclosureIndicator: UIImageView = {
-        let rightImage = UIImageView.init()
-        rightImage.image = #imageLiteral(resourceName: "right_arrow")
-        constrain(rightImage) { $0.width == 6 }
-        rightImage.contentMode = .scaleAspectFit
-        return rightImage
+        let view: UIImageView = .createDisclosure()
+        return view
     }()
     
     private lazy var baseStackView: UIStackView = {

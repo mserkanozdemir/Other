@@ -17,6 +17,7 @@
 		B373776121B5B4D6003F7C2E /* OtherCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776021B5B4D6003F7C2E /* OtherCell.swift */; };
 		B373776321B5B96B003F7C2E /* LogOutTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B373776221B5B96B003F7C2E /* LogOutTableViewCell.swift */; };
 		B3D33A8521C7A26F00093873 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B3D33A8421C7A26F00093873 /* GoogleService-Info.plist */; };
+		B3D33A8921CB882500093873 /* UIImageExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3D33A8821CB882500093873 /* UIImageExtension.swift */; };
 		CF1100DE246271BF8AAB4032 /* Pods_Other.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FE4604114F7C5DCB5C11ADB /* Pods_Other.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +36,7 @@
 		B373776021B5B4D6003F7C2E /* OtherCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherCell.swift; sourceTree = "<group>"; };
 		B373776221B5B96B003F7C2E /* LogOutTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogOutTableViewCell.swift; sourceTree = "<group>"; };
 		B3D33A8421C7A26F00093873 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		B3D33A8821CB882500093873 /* UIImageExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageExtension.swift; sourceTree = "<group>"; };
 		B871950F0DBF8BBA30CDAE22 /* Pods-Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Other/Pods-Other.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -121,6 +123,7 @@
 				B30F6E4C219C13F20056A3C2 /* LaunchScreen.storyboard */,
 				B30F6E4F219C13F20056A3C2 /* Info.plist */,
 				B3D33A8421C7A26F00093873 /* GoogleService-Info.plist */,
+				B3D33A8821CB882500093873 /* UIImageExtension.swift */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				B373775F21B5A94F003F7C2E /* OtherTableViewCell.swift in Sources */,
 				B30F6E56219C61900056A3C2 /* OtherViewModel.swift in Sources */,
 				B30F6E41219C13F10056A3C2 /* AppDelegate.swift in Sources */,
+				B3D33A8921CB882500093873 /* UIImageExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

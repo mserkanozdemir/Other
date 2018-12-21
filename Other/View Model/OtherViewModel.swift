@@ -23,11 +23,9 @@ enum SectionType {
 
     var sectionTitle: String {
         switch self {
-        case .infoSection:
-            return " "
         case .settingsSection:
-            return "   Ayarlar"
-        case .logoutSection:
+            return "Ayarlar"
+        default:
             return " "
         }
     }
@@ -44,7 +42,7 @@ enum SectionType {
     var sectionHeaderHeight: CGFloat {
         switch self {
         case .infoSection:
-            return 30.0
+            return 20.0
         case .settingsSection:
             return 40.0
         case .logoutSection:

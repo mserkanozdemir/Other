@@ -14,11 +14,12 @@ class OtherViewController: UIViewController {
     var viewModel = OtherViewModel()
     
     private lazy var tableview: UITableView = {
-        let tableview = UITableView.init(frame: .zero, style: .plain)
+        let tableview = UITableView.init(frame: .zero, style: .grouped)
         tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
         tableview.register(LogOutTableViewCell.self, forCellReuseIdentifier: "logOutCell")
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0.1, height: 0.1))
         tableview.tableFooterView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 30.0))
         tableview.tableFooterView?.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
         tableview.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9294117647, blue: 0.9294117647, alpha: 1)
@@ -51,6 +52,14 @@ extension OtherViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return viewModel.sections[section].sectionHeaderHeight
+    }
+    
+//    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//        return 44
+//    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.1
     }
 }
 
