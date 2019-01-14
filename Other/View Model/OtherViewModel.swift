@@ -9,30 +9,36 @@
 import Foundation
 import UIKit
 enum SectionType {
-    case infoSection, settingsSection, logoutSection
+    case personalInfoSection, changePasswordSection, socialNetworksSection, emailAndSMSSection
     var rows: [RowType] {
         switch self {
-        case .infoSection:
-            return [.GameProfile, .Profile, .Orders, .Favourites, .Adresses, .CreditCards, .Wallet, .Coupons, .Wiki, .Deals, .Campus]
-        case .settingsSection:
-            return [.Language, .ChangeCity, .RateApp, .AboutApp]
-        case .logoutSection:
-            return [.Logout]
-            }
+        case .personalInfoSection:
+            return [.Name, .Surname, .BirthDate, .Email]
+        case .changePasswordSection:
+            return [.ChangePassword]
+        case .socialNetworksSection:
+            return [.FacebookConnection]
+        case .emailAndSMSSection:
+            return [.AllowEmail, .AllowSms]
         }
+    }
 
     var sectionTitle: String {
         switch self {
-        case .settingsSection:
-            return "Ayarlar"
-        default:
-            return " "
+        case .personalInfoSection:
+            return "Kişisel Bilgiler"
+        case .changePasswordSection:
+            return ""
+        case .socialNetworksSection:
+            return "Sosyal Ağlar"
+        case .emailAndSMSSection:
+            return "E-Posta ve SMS"
         }
     }
 
     var shouldShowTopLine: Bool {
         switch self {
-        case .settingsSection:
+        case .changePasswordSection:
             return false
         default:
             return true
@@ -41,11 +47,13 @@ enum SectionType {
     
     var sectionHeaderHeight: CGFloat {
         switch self {
-        case .infoSection:
-            return 20.0
-        case .settingsSection:
+        case .personalInfoSection:
             return 40.0
-        case .logoutSection:
+        case .changePasswordSection:
+            return 20.0
+        case .socialNetworksSection:
+            return 20.0
+        case .emailAndSMSSection:
             return 20.0
         }
     }
@@ -53,88 +61,56 @@ enum SectionType {
 
     enum RowType {
         case
-        GameProfile, Profile, Orders, Favourites, Adresses, CreditCards, Wallet, Coupons, Wiki, Deals, Campus, Language, ChangeCity, RateApp, AboutApp, Logout
+        Name, Surname, BirthDate, Email, ChangePassword, FacebookConnection, AllowEmail, AllowSms
         var rowName: String {
             switch self {
-            case .GameProfile:
-                return "Profilim"
-            case .Profile:
-                return "Bilgilerim"
-            case .Orders:
-                return "Önceki Siparişlerim"
-            case .Favourites:
-                return "Favorilerim"
-            case .Adresses:
-                return "Adreslerim"
-            case .CreditCards:
-                return "Kredi Kartlarım"
-            case .Wallet:
-                return "Cüzdanım"
-            case .Coupons:
-                return "Kuponlarım"
-            case .Wiki:
-                return "Oyunla İlgili Bilgiler"
-            case .Deals:
-                return "Fırsatlar"
-            case .Campus:
-                return "Kampüs"
-            case .Language:
-                return "Change Language"
-            case .ChangeCity:
-                return "Şehir Değiştir"
-            case .RateApp:
-                return "Uygulamayı Değerlendirin"
-            case .AboutApp:
-                return "Uygulama Hakkında"
-            case .Logout:
-                return "Güvenli Çıkış"
+//            case .Name:
+//                return "Ad"
+//            case .Surname:
+//                return "Soyad"
+//            case .BirthDate:
+//                return "Doğum Tarihi"
+//            case .Email:
+//                return "E-Posta"
+            case .ChangePassword:
+                return "Şifre Değişikliği"
+            case .FacebookConnection:
+                return "Bağlantıyı Kaldır"
+            case .AllowEmail:
+                return "Kampanya ve indirimler ile ilgili e-posta almak istiyorum."
+            case .AllowSms:
+                return "Sms almak istiyorum"
+            default:
+                return ""
             }
         }
 
             var icon: UIImage? {
                 switch self {
-                case .GameProfile:
-                    return #imageLiteral(resourceName: "profile_icon")
-                case .Profile:
+                case .FacebookConnection:
                     return #imageLiteral(resourceName: "myProfile")
-                case .Orders:
-                    return #imageLiteral(resourceName: "myOrders")
-                case .Favourites:
+                case .ChangePassword:
                     return #imageLiteral(resourceName: "myFavourites")
-                case .Adresses:
-                    return #imageLiteral(resourceName: "myAddresses")
-                case .CreditCards:
-                    return #imageLiteral(resourceName: "myCreditCards")
-                case .Wallet:
-                    return #imageLiteral(resourceName: "myWallet")
-                case .Coupons:
-                    return #imageLiteral(resourceName: "myCoupons")
-                case .Wiki:
-                    return #imageLiteral(resourceName: "gameinfo_icon")
-                case .Deals:
-                    return #imageLiteral(resourceName: "deals")
-                case .Campus:
-                    return #imageLiteral(resourceName: "other_campus")
                 default:
                     return nil
                 }
         }
         
-            var badge: String? {
-                switch self {
-                case .Orders:
-                    return "1"
-                case .Coupons:
-                    return "2"
-                default:
-                    return nil
-                }
-        }
+//            var badge: String? {
+//                switch self {
+//                case .BirthDate:
+//                    return "1"
+//                case .Surname:
+//                    return "2"
+//                default:
+//                    return nil
+//                }
+//        }
 }
 
 class OtherViewModel {
     var sections: [SectionType] {
-        return [.infoSection, .settingsSection, .logoutSection]
+        return [.personalInfoSection, .changePasswordSection, .socialNetworksSection, .emailAndSMSSection]
     }
     func getSectionType(at section: Int) -> SectionType? {
         guard section < sections.count else {return nil}

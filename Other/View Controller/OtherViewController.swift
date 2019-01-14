@@ -14,9 +14,9 @@ class OtherViewController: UIViewController {
     var viewModel = OtherViewModel()
     
     private lazy var tableview: UITableView = {
-        let tableview = UITableView.init(frame: .zero, style: .grouped)
+        let tableview = UITableView.init(frame: .zero, style: .plain)
         tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
-        tableview.register(LogOutTableViewCell.self, forCellReuseIdentifier: "logOutCell")
+        tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "textFieldCell")
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0.1, height: 0.1))
@@ -79,8 +79,8 @@ extension OtherViewController: UITableViewDataSource {
         }
         
         switch rowType {
-        case .Logout :
-            let cell = tableView.dequeueReusableCell(withIdentifier: "logOutCell", for: indexPath) as! LogOutTableViewCell
+        case .Name, .Surname, .BirthDate, .Email :
+            let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldTableViewCell
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OtherCell

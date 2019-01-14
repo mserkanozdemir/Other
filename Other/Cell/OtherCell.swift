@@ -27,18 +27,18 @@ class OtherCell: UITableViewCell {
         return cellTitle
     }()
     
-    private lazy var badge: UILabel = {
-        let badgeLabel = UILabel.init()
-        badgeLabel.textColor = .white
-        badgeLabel.backgroundColor = .red
-        badgeLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
-        badgeLabel.textAlignment = .center
-        constrain(badgeLabel) {
-            $0.width == 23
-            $0.height == 23
-        }
-        return badgeLabel
-    }()
+//    private lazy var badge: UILabel = {
+//        let badgeLabel = UILabel.init()
+//        badgeLabel.textColor = .white
+//        badgeLabel.backgroundColor = .red
+//        badgeLabel.font = UIFont.systemFont(ofSize: 15, weight: .medium)
+//        badgeLabel.textAlignment = .center
+//        constrain(badgeLabel) {
+//            $0.width == 23
+//            $0.height == 23
+//        }
+//        return badgeLabel
+//    }()
     
     private(set) lazy var space = UIView()
     
@@ -48,7 +48,7 @@ class OtherCell: UITableViewCell {
     }()
     
     private lazy var baseStackView: UIStackView = {
-        let stackView = UIStackView.init(arrangedSubviews: [icon, titleLabel, badge, space, disclosureIndicator])
+        let stackView = UIStackView.init(arrangedSubviews: [icon, titleLabel, space, disclosureIndicator])
         stackView.axis = .horizontal
         stackView.distribution = .fill
         stackView.spacing = 16
@@ -75,11 +75,11 @@ class OtherCell: UITableViewCell {
         icon.image = type.icon
         titleLabel.text = type.rowName
         icon.isHidden = type.icon == nil
-        badge.isHidden = type.badge == nil
-        badge.text = type.badge
-        self.layoutIfNeeded()
-        badge.layer.masksToBounds = true
-        badge.layer.cornerRadius = badge.frame.size.width / 2
+//        badge.isHidden = type.badge == nil
+//        badge.text = type.badge
+//        self.layoutIfNeeded()
+//        badge.layer.masksToBounds = true
+//        badge.layer.cornerRadius = badge.frame.size.width / 2
         
     }
 
