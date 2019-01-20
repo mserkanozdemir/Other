@@ -52,9 +52,9 @@ enum SectionType {
         case .changePasswordSection:
             return 20.0
         case .socialNetworksSection:
-            return 20.0
+            return 40.0
         case .emailAndSMSSection:
-            return 20.0
+            return 40.0
         }
     }
 }
@@ -64,14 +64,14 @@ enum SectionType {
         Name, Surname, BirthDate, Email, ChangePassword, FacebookConnection, AllowEmail, AllowSms
         var rowName: String {
             switch self {
-//            case .Name:
-//                return "Ad"
-//            case .Surname:
-//                return "Soyad"
-//            case .BirthDate:
-//                return "Doğum Tarihi"
-//            case .Email:
-//                return "E-Posta"
+            case .Name:
+                return "Ad"
+            case .Surname:
+                return "Soyad"
+            case .BirthDate:
+                return "Doğum Tarihi"
+            case .Email:
+                return "E-Posta"
             case .ChangePassword:
                 return "Şifre Değişikliği"
             case .FacebookConnection:
@@ -79,7 +79,7 @@ enum SectionType {
             case .AllowEmail:
                 return "Kampanya ve indirimler ile ilgili e-posta almak istiyorum."
             case .AllowSms:
-                return "Sms almak istiyorum"
+                return "Kampanya ve indirimler ile ilgili sms almak istiyorum."
             default:
                 return ""
             }

@@ -10,5 +10,6 @@ pod 'Fabric'
 pod 'Crashlytics'
 pod 'Firebase/Core'
 pod 'Cartography', '~> 3.0'
+pod 'SkyFloatingLabelTextField', '~> 3.0'
 
 end

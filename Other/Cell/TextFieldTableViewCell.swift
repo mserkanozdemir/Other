@@ -8,25 +8,32 @@
 
 import UIKit
 import Cartography
+import SkyFloatingLabelTextField
 
 class TextFieldTableViewCell: UITableViewCell {
     
-    private let usernameTextField: UITextField = {
-        let nameTextField = UITextField()
-        nameTextField.borderStyle = .roundedRect
-        nameTextField.translatesAutoresizingMaskIntoConstraints = false
-        return nameTextField
+    private let textField: SkyFloatingLabelTextField = {
+        let textField = SkyFloatingLabelTextField()
+        textField.titleColor = .gray
+        textField.selectedTitleColor = .darkGray
+        textField.placeholderColor = .black
+        textField.returnKeyType = .next
+        textField.titleFormatter = { (text: String) -> String in
+            return text.capitalized(with: Locale.current)
+        }
+        return textField
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        addSubview(usernameTextField)
-        constrain(usernameTextField, block: {
-            $0.leading == $0.superview!.leading
-            $0.trailing == $0.superview!.trailing
-            $0.top == $0.superview!.top
-            $0.bottom == $0.superview!.bottom
+        addSubview(textField)
+        constrain(textField, block: {
+            $0.leading == $0.superview!.leading + 16
+            $0.trailing == $0.superview!.trailing - 16
+            $0.top == $0.superview!.top + 5
+            $0.bottom == $0.superview!.bottom - 5
+            $0.height == 40
         })
     }
     
@@ -45,4 +52,8 @@ class TextFieldTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
+    func populateUI(with type: RowType) {
+        textField.placeholder = type.rowName
+        textField.title = type.rowName
+    }
 }

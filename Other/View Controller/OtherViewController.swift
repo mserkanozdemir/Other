@@ -17,6 +17,7 @@ class OtherViewController: UIViewController {
         let tableview = UITableView.init(frame: .zero, style: .plain)
         tableview.register(OtherCell.self, forCellReuseIdentifier: "cell")
         tableview.register(TextFieldTableViewCell.self, forCellReuseIdentifier: "textFieldCell")
+        tableview.register(SliderTableViewCell.self, forCellReuseIdentifier: "sliderCell")
         tableview.delegate = self
         tableview.dataSource = self
         tableview.tableHeaderView = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 0.1, height: 0.1))
@@ -81,6 +82,11 @@ extension OtherViewController: UITableViewDataSource {
         switch rowType {
         case .Name, .Surname, .BirthDate, .Email :
             let cell = tableView.dequeueReusableCell(withIdentifier: "textFieldCell", for: indexPath) as! TextFieldTableViewCell
+            cell.populateUI(with: rowType)
+            return cell
+        case .AllowSms, .AllowEmail:
+            let cell = tableView.dequeueReusableCell(withIdentifier: "sliderCell", for: indexPath) as! SliderTableViewCell
+            cell.populateUI(with: rowType)
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OtherCell
