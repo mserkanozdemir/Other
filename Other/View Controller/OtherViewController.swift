@@ -87,6 +87,7 @@ extension OtherViewController: UITableViewDataSource {
         case .AllowSms, .AllowEmail:
             let cell = tableView.dequeueReusableCell(withIdentifier: "sliderCell", for: indexPath) as! SliderTableViewCell
             cell.populateUI(with: rowType)
+            cell.selectionStyle = .none
             return cell
         default:
             let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! OtherCell
